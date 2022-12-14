@@ -37,7 +37,7 @@ steps:
   - standard: link_your_namespaces
   - title: Deploy and expose the database
     preamble: |
-      Use `docker` to run the database service on your local machine.
+      Use `podman` to run the database service on your local machine.
       In the public namespace, use the `skupper gateway expose`
       command to expose the database on the Skupper network.
 
@@ -91,7 +91,7 @@ steps:
   - standard: cleaning_up
     commands:
       public:
-        - run: docker stop database
+        - run: podman stop database
         - run: skupper gateway delete
         - run: skupper delete
         - run: kubectl delete service/frontend
