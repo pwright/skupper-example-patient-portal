@@ -45,7 +45,7 @@ steps:
       service is available.
     commands:
       public:
-        - run: podman run --name database --detach --rm -p 5432:5432 quay.io/skupper/patient-portal-database
+        - run: podman run --name database -p 5432:5432 quay.io/skupper/patient-portal-database
         - run: skupper gateway expose database localhost 5432 --type podman
           output: 2022/05/19 16:37:00 CREATE io.skupper.router.tcpConnector fancypants-jross-egress-database:5432 map[address:database:5432 host:localhost name:fancypants-jross-egress-database:5432 port:5432 siteId:0e7b70cf-1931-4c93-9614-0ecb3d0d6522]
         - await: service/database
